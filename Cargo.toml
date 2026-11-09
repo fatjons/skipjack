@@ -1,0 +1,20 @@
+[package]
+name = "skipjack"
+version = "0.1.0"
+repository = "https://github.com/fatjons/skipjack"
+edition = "2021"
+description = "SponsorBlock for YouTube on TVs: a lightweight Rust port of iSponsorBlockTV for small boards like the Pi 1"
+license = "GPL-3.0-only"
+
+[dependencies]
+ureq = { version = "2.9", default-features = false, features = ["tls", "json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

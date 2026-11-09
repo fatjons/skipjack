@@ -1,0 +1,16 @@
+[Unit]
+Description=skipjack (SponsorBlock for YouTube TV)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/skipjack /etc/skipjack/config.json
+Restart=always
+RestartSec=10
+DynamicUser=yes
+Nice=10
+LogNamespace=skipjack
+MemoryMax=32M
+
+[Install]
+WantedBy=multi-user.target
